@@ -8,12 +8,12 @@ import src.domain.entity.QuestionAnswer
 import src.domain.entity.QuestionAnswerDetail
 import src.domain.repository.QuestionAnswerRepository
 
-class QuestionAnswerRepositoryImpl
-    (
+class QuestionAnswerRepositoryImpl(
     private val darulIftaDeobandLocalDataSource: DarulIftaDeobandLocalDataSource,
     private val darulIftaDeobandRemoteDataSource: DarulIftaDeobandRemoteDataSource,
 ) : QuestionAnswerRepository {
     override fun getQuestionAnswerDetails(questionId: Long): Flow<Resource<QuestionAnswerDetail>> {
+        val category =
         TODO("Not yet implemented")
     }
 

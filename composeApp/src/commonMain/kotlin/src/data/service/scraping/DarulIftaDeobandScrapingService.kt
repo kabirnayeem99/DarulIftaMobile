@@ -8,10 +8,52 @@ import kotlinx.coroutines.withContext
 import src.core.EmptyHtmlException
 import src.core.properCase
 import src.core.safeCall
+import src.data.service.scraping.dto.DarulIftaDeobandCategoriesDto
 import src.data.service.scraping.dto.DarulIftaDeobandQADto
 
 
 class DarulIftaDeobandScrapingService {
+//
+//    suspend fun parseCategoriesAndSubCategories(html: String?): DarulIftaDeobandCategoriesDto {
+//        return withContext(Dispatchers.IO) {
+//            html?.let {
+//                if (html.isBlank()) throw EmptyHtmlException()
+//
+//                val parsedHtml = Ksoup.parse(html)
+//
+//                val allRootCategories = parsedHtml.body().select(".cat_part_sec")
+//
+//                val rootCategories = mutableListOf<DarulIftaDeobandCategoriesDto.CategoryDto>()
+//
+//                allRootCategories.forEach { element ->
+//                    val category = DarulIftaDeobandCategoriesDto.CategoryDto()
+//                    val subCategories = mutableListOf<DarulIftaDeobandCategoriesDto.CategoryDto>()
+//                    element.childElementsList().forEach { ie ->
+//                        if (ie.normalName() == "h3") {
+//                            category.name = ie.wholeOwnText().trim()
+//                        } else if (ie.normalName() == "ul") {
+//                            val liItems = ie.childElementsList().filter { it.normalName() == "li" }
+//                            liItems.forEach { lit ->
+//                                val linkElement =
+//                                    lit.childElementsList().first { it.normalName() == "a" }
+//                                val linkUrl = linkElement.attr("href")
+//                                val linkId = linkUrl.split("/").lastOrNull()?.toLongOrNull() ?: -1L
+//                                val categoryName = linkElement.wholeOwnText().trim()
+//                                val subCategory = DarulIftaDeobandCategoriesDto.CategoryDto(
+//                                    id = linkId,
+//                                    name = categoryName,
+//                                )
+//                                subCategories.add(subCategory)
+//                            }
+//                        }
+//                    }
+//                    category.subCategories = subCategories
+//                }
+//
+//                DarulIftaDeobandCategoriesDto(rootCategories)
+//            } ?: throw EmptyHtmlException()
+//        }
+//    }
 
     /**
      * Parses the provided HTML content from a Darul Ifta Deoband question-answer page

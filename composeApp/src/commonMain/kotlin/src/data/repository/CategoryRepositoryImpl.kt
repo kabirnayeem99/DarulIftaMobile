@@ -9,6 +9,9 @@ import src.domain.repository.CategoryRepository
 class CategoryRepositoryImpl(
     private val categoryLocalDataSource: CategoryLocalDataSource,
 ) : CategoryRepository {
+
+    val categories = mutableListOf<Category>()
+
     override fun getSubCategories(rootCategoryId: Long): Flow<Resource<List<Category>>> {
         TODO("Not yet implemented")
     }

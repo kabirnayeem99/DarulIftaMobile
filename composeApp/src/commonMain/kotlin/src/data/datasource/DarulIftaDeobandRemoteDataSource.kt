@@ -2,6 +2,7 @@ package src.data.datasource
 
 import src.data.service.scraping.DarulIftaDeobandScrapingService
 import src.data.service.scraping.HttpFetching
+import src.data.service.scraping.dto.DarulIftaDeobandCategoriesDto
 import src.data.service.scraping.dto.DarulIftaDeobandQADto
 
 class DarulIftaDeobandRemoteDataSource(
@@ -20,4 +21,10 @@ class DarulIftaDeobandRemoteDataSource(
         val dto = scrapingService.parseQuestionAndAnswer(html)
         return dto
     }
+
+//    suspend fun parseCategoriesAndSubCategories(url: String): DarulIftaDeobandCategoriesDto {
+//        val html = httpFetching.parseGetRequestAsHtmlString(url)
+//        val dto = scrapingService.parseCategoriesAndSubCategories(html)
+//        return dto
+//    }
 }

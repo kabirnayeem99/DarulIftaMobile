@@ -1,0 +1,185 @@
+{
+  "categories": [
+    {
+      "category_name": "Faiths & Beliefs",
+      "sub_categories": [
+        {
+          "name": "Islamic Beliefs",
+          "url": "https://darulifta-deoband.com/home/qa/islamic-beliefs/1"
+        },
+        {
+          "name": "World Religions",
+          "url": "https://darulifta-deoband.com/home/qa/world-religions/2"
+        },
+        {
+          "name": "False Sects",
+          "url": "https://darulifta-deoband.com/home/qa/false-sects/3"
+        },
+        {
+          "name": "Deviant Sects",
+          "url": "https://darulifta-deoband.com/home/qa/deviant-sects/4"
+        },
+        {
+          "name": "Innovations & Customs",
+          "url": "https://darulifta-deoband.com/home/qa/innovations-customs/5"
+        },
+        {
+          "name": "Taqleed & Fighi Schools",
+          "url": "https://darulifta-deoband.com/home/qa/taqleed-fighi-schools/6"
+        },
+        {
+          "name": "The Holy Quran",
+          "url": "https://darulifta-deoband.com/home/qa/the-holy-quran/7"
+        },
+        {
+          "name": "Hadith & Sunnah",
+          "url": "https://darulifta-deoband.com/home/qa/hadith-sunnah/8"
+        },
+        {
+          "name": "Dawah & Tableeg",
+          "url": "https://darulifta-deoband.com/home/qa/dawah-tableeg/9"
+        }
+      ]
+    },
+    {
+      "category_name": "Miscellaneous",
+      "sub_categories": [
+        {
+          "name": "Halal & Haram",
+          "url": "https://darulifta-deoband.com/home/qa/halal-haram/10"
+        },
+        {
+          "name": "Dua Supplications",
+          "url": "https://darulifta-deoband.com/home/qa/dua-supplications/11"
+        },
+        {
+          "name": "Islamic Names",
+          "url": "https://darulifta-deoband.com/home/qa/islamic-names/13"
+        },
+        {
+          "name": "Tasawwuf",
+          "url": "https://darulifta-deoband.com/home/qa/tasawwuf/14"
+        },
+        {
+          "name": "History & Biography",
+          "url": "https://darulifta-deoband.com/home/qa/history-biography/15"
+        },
+        {
+          "name": "International Relations",
+          "url": "https://darulifta-deoband.com/home/qa/international-relations/16"
+        },
+        {
+          "name": "Others",
+          "url": "https://darulifta-deoband.com/home/qa/others/17"
+        }
+      ]
+    },
+    {
+      "category_name": "Prayers & Duties",
+      "sub_categories": [
+        {
+          "name": "Taharah Purity",
+          "url": "https://darulifta-deoband.com/home/qa/taharah-purity/18"
+        },
+        {
+          "name": "Salah Prayer",
+          "url": "https://darulifta-deoband.com/home/qa/salah-prayer/19"
+        },
+        {
+          "name": "Jumuah & Eid Prayers",
+          "url": "https://darulifta-deoband.com/home/qa/jumuah-eid-prayers/20"
+        },
+        {
+          "name": "Death & Funeral",
+          "url": "https://darulifta-deoband.com/home/qa/death-funeral/21"
+        },
+        {
+          "name": "Sawm Fasting",
+          "url": "https://darulifta-deoband.com/home/qa/sawm-fasting/22"
+        },
+        {
+          "name": "Zakat & Charity",
+          "url": "https://darulifta-deoband.com/home/qa/zakat-charity/23"
+        },
+        {
+          "name": "Hajj & Umrah",
+          "url": "https://darulifta-deoband.com/home/qa/hajj-umrah/24"
+        },
+        {
+          "name": "Oaths & Vows",
+          "url": "https://darulifta-deoband.com/home/qa/oaths-vows/25"
+        },
+        {
+          "name": "Waqf, Mosque, Madrasa",
+          "url": "https://darulifta-deoband.com/home/qa/waqf-mosque-madrasa/26"
+        },
+        {
+          "name": "Qurbani Slaughtering",
+          "url": "https://darulifta-deoband.com/home/qa/qurbani-slaughtering/27"
+        }
+      ]
+    },
+    {
+      "category_name": "Social Matters",
+      "sub_categories": [
+        {
+          "name": "Nikah Marriage",
+          "url": "https://darulifta-deoband.com/home/qa/nikah-marriage/28"
+        },
+        {
+          "name": "Talaq Divorce",
+          "url": "https://darulifta-deoband.com/home/qa/talaq-divorce/29"
+        },
+        {
+          "name": "Food & Drinks",
+          "url": "https://darulifta-deoband.com/home/qa/food-drinks/30"
+        },
+        {
+          "name": "Clothing & Lifestyle",
+          "url": "https://darulifta-deoband.com/home/qa/clothing-lifestyle/31"
+        },
+        {
+          "name": "Rights & Etiquettes",
+          "url": "https://darulifta-deoband.com/home/qa/rights-etiquettes/32"
+        },
+        {
+          "name": "Education & Upbringing",
+          "url": "https://darulifta-deoband.com/home/qa/education-upbringing/33"
+        },
+        {
+          "name": "Women's Issues",
+          "url": "https://darulifta-deoband.com/home/qa/women-s-issues/34"
+        }
+      ]
+    },
+    {
+      "category_name": "Transactions & Dealings",
+      "sub_categories": [
+        {
+          "name": "Business",
+          "url": "https://darulifta-deoband.com/home/qa/business/35"
+        },
+        {
+          "name": "Shares & Investments",
+          "url": "https://darulifta-deoband.com/home/qa/shares-investments/36"
+        },
+        {
+          "name": "Interest & Insurance",
+          "url": "https://darulifta-deoband.com/home/qa/interest-insurance/37"
+        },
+        {
+          "name": "Other Transactions",
+          "url": "https://darulifta-deoband.com/home/qa/other-transactions/38"
+        },
+        {
+          "name": "Inheritance & Will",
+          "url": "https://darulifta-deoband.com/home/qa/inheritance-will/39"
+        },
+        {
+          "name": "Penal Code",
+          "url": "https://darulifta-deoband.com/home/qa/penal-code/40"
+        }
+      ]
+    }
+  ]
+}

@@ -3,10 +3,11 @@ import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
-    alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidApplication)
-    alias(libs.plugins.jetbrainsCompose)
     alias(libs.plugins.compose.compiler)
+    alias(libs.plugins.jetbrainsCompose)
+    alias(libs.plugins.kotlinMultiplatform)
+    alias(libs.plugins.kotlinxSerialization)
 }
 
 kotlin {
@@ -47,6 +48,7 @@ kotlin {
             implementation(compose.runtime)
             implementation(compose.ui)
             implementation(libs.kotlinx.coroutines.core)
+            implementation(libs.kotlinx.serialization.json)
             implementation(libs.ksoup)
             implementation(libs.ksoup.network)
             implementation(libs.ktor.client.content.negotiation)

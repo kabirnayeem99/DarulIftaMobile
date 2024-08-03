@@ -15,6 +15,7 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.IO
 import kotlinx.coroutines.withContext
+import src.data.service.scraping.StaticJsonLoaderService
 
 @Composable
 @Preview
@@ -23,7 +24,7 @@ fun App() {
         var count by remember { mutableIntStateOf(1) }
         LaunchedEffect(count) {
             withContext(Dispatchers.IO) {
-
+                StaticJsonLoaderService().getDarulIftaCategoryStaticData().also { println(it) }
             }
         }
         var showContent by remember { mutableStateOf(false) }

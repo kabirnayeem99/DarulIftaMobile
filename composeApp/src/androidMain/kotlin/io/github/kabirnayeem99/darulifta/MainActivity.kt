@@ -1,4 +1,4 @@
-package io.github.kabirnayeem99
+package io.github.kabirnayeem99.darulifta
 
 import src.App
 import android.os.Bundle

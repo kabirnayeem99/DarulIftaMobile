@@ -1,7 +1,7 @@
 package src.core.datastructure
 
 
-public inline fun <K, V> lruCacheOf(capacity: Int): LruCache<K, V> = LruCache(capacity = capacity)
+inline fun <K, V> lruCacheOf(capacity: Int): LruCache<K, V> = LruCache(capacity = capacity)
 
 class LruCache<K, V>(private val capacity: Int) {
     private val cache = LinkedHashMap<K, V>()

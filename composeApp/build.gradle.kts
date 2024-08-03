@@ -47,56 +47,58 @@ kotlin {
         }
 
         commonMain.dependencies {
+            api(libs.koin.core)
+            api(libs.kotlinx.datetime)
+            api(libs.material.theme.prefs)
+            api(libs.napier)
+
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
-            api(libs.koin.core)
-            implementation(libs.sqlDelight.runtime)
-            implementation(libs.sqlDelight.coroutines.extensions)
-            implementation(libs.koin.compose.multiplatform)
-            implementation(libs.koin.test)
             implementation(compose.foundation)
             implementation(compose.material)
             implementation(compose.material3)
             implementation(compose.runtime)
             implementation(compose.ui)
+
+            implementation(libs.coroutines.core)
+
+            implementation(libs.koin.compose.multiplatform)
+            implementation(libs.koin.core)
+            implementation(libs.koin.test)
+
             implementation(libs.kotlinx.coroutines.core)
+
             implementation(libs.kotlinx.serialization.json)
+
             implementation(libs.ksoup)
             implementation(libs.ksoup.network)
+
             implementation(libs.ktor.client.content.negotiation)
             implementation(libs.ktor.client.core)
             implementation(libs.ktor.client.logging)
-            implementation(libs.coroutines.core)
+
+            implementation(libs.sqlDelight.coroutines.extensions)
             implementation(libs.sqlDelight.coroutinesExt)
-            api(libs.kotlinx.datetime)
-            api(libs.napier)
-            implementation(libs.koin.core)
-            api(libs.material.theme.prefs)
+            implementation(libs.sqlDelight.runtime)
+
             implementation(libs.stately.common)
-            implementation(libs.sqlDelight.coroutinesExt)
-            api(libs.kotlinx.datetime)
-            implementation(libs.coroutines.core)
-            api(libs.napier)
-            implementation(libs.stately.common)
-            api(libs.material.theme.prefs)
         }
 
         commonTest.dependencies {
-            implementation(libs.kotlin.test)
             implementation(kotlin("test"))
-            implementation(kotlin("test-common"))
             implementation(kotlin("test-annotations-common"))
+            implementation(kotlin("test-common"))
             implementation(libs.coroutines.test)
             implementation(libs.koin.test)
         }
 
+
         androidMain.dependencies {
-            implementation(libs.coroutines.android)
-            api(libs.sqlDelight.android)
-            implementation(libs.bundles.androidx.sqlite)
             api(libs.android.sqlcipher)
-            implementation(libs.koin.android)
+            api(libs.sqlDelight.android)
             implementation(libs.androidx.activity.compose)
+            implementation(libs.bundles.androidx.sqlite)
+            implementation(libs.coroutines.android)
             implementation(libs.koin.android)
         }
 
@@ -106,15 +108,15 @@ kotlin {
         }
 
         iosMain.dependencies {
-            implementation(libs.sqlDelight.native)
             implementation(libs.ktor.client.darwin)
+            implementation(libs.sqlDelight.native)
         }
 
         jvmMain.dependencies {
-            implementation(libs.sqlDelight.jvm)
             implementation(libs.appdirs)
-            implementation(libs.slf4j)
             implementation(libs.coroutines.swing)
+            implementation(libs.slf4j)
+            implementation(libs.sqlDelight.jvm)
         }
 
         all {

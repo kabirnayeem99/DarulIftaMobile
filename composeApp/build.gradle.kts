@@ -40,17 +40,21 @@ kotlin {
         }
 
         commonMain.dependencies {
-            implementation(compose.runtime)
-            implementation(compose.foundation)
-            implementation(compose.material)
-            implementation(compose.ui)
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
-            implementation(libs.ktor.client.core)
-            implementation(libs.ktor.client.content.negotiation)
+            implementation(compose.foundation)
+            implementation(compose.material)
+            implementation(compose.runtime)
+            implementation(compose.ui)
             implementation(libs.kotlinx.coroutines.core)
             implementation(libs.ksoup)
             implementation(libs.ksoup.network)
+            implementation(libs.ktor.client.content.negotiation)
+            implementation(libs.ktor.client.core)
+        }
+
+        commonTest.dependencies {
+            implementation(libs.kotlin.test)
         }
 
         desktopMain.dependencies {

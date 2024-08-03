@@ -10,4 +10,5 @@ data class DarulIftaDeobandQADto(
     val answer: String,
     val rootCategory: String,
     val category: String,
+    val answerDate: String,
 )

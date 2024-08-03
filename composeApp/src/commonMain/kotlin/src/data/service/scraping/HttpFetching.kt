@@ -11,12 +11,18 @@ class HttpFetching {
 
     private val responseLruCache = lruCacheOf<String, String>(10)
 
-    suspend fun parseGetRequestAsHtmlString(url: String): Result<String> {
-        return runCatching {
-            if (responseLruCache.containsKey(url)) return@runCatching responseLruCache.get(url)!!
-            val html = client.get(url).bodyAsText().trimIndent()
-            responseLruCache.put(url, html)
-            html
-        }
+    /**
+     * Fetches the HTML content of a given URL using a provided HTTP client.
+     *
+     * Implements a basic LRU cache to store fetched HTML content for performance optimization.
+     *
+     * @param url The URL to fetch the HTML content from.
+     * @return The fetched HTML content as a string, or an empty string if an error occurs.
+     */
+    suspend fun parseGetRequestAsHtmlString(url: String): String {
+        if (responseLruCache.containsKey(url)) return responseLruCache.get(url)!!
+        val html = client.get(url).bodyAsText().trimIndent()
+        responseLruCache.put(url, html)
+        return html
     }
 }

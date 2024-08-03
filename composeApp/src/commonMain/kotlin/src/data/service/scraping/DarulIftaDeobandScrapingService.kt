@@ -13,6 +13,16 @@ import src.data.service.scraping.dto.DarulIftaDeobandQADto
 
 class DarulIftaDeobandScrapingService {
 
+    /**
+     * Parses the provided HTML content from a Darul Ifta Deoband question-answer page
+     * and returns a `DarulIftaDeobandQADto` object containing the extracted data.
+     *
+     * @param html The HTML content to be parsed (can be null).
+     * @return A `DarulIftaDeobandQADto` object containing the parsed data from the HTML.
+     * @throws EmptyHtmlException If the provided HTML content is null or empty.
+     * @throws IllegalStateException If the answer detail element is not found within the HTML.
+     * @throws Exception Any other unexpected exception that might occur during parsing.
+     */
     suspend fun parseQuestionAndAnswer(html: String?): DarulIftaDeobandQADto {
         return withContext(Dispatchers.IO) {
             html?.let {

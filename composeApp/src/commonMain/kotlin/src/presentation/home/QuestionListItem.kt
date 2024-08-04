@@ -29,10 +29,10 @@ fun QuestionListItem(modifier: Modifier = Modifier, question: QuestionAnswer) {
                     textAlign = TextAlign.Start,
 
                     ),
-                modifier = Modifier.weight(0.75F),
+                modifier = Modifier.weight(0.80F),
                 maxLines = 2,
                 overflow = TextOverflow.Ellipsis,
-                lineHeight = 22.sp,
+                lineHeight = 26.sp,
             )
             Spacer(Modifier.width(8.dp))
             Text(
@@ -41,7 +41,8 @@ fun QuestionListItem(modifier: Modifier = Modifier, question: QuestionAnswer) {
                     fontWeight = FontWeight.Light,
                     textAlign = TextAlign.End,
                 ),
-                modifier = Modifier.weight(0.35F)
+                lineHeight = 26.sp,
+                modifier = Modifier.weight(0.20F)
             )
             Spacer(Modifier.width(8.dp))
         }

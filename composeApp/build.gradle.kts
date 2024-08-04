@@ -82,6 +82,9 @@ kotlin {
             implementation(libs.sqlDelight.runtime)
 
             implementation(libs.stately.common)
+
+            implementation(libs.voyager.navigator)
+            implementation(libs.voyager.screenModel)
         }
 
         commonTest.dependencies {

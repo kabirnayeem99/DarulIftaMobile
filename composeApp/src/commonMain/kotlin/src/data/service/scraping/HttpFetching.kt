@@ -2,12 +2,22 @@ package src.data.service.scraping
 
 import io.ktor.client.HttpClient
 import io.ktor.client.plugins.cache.HttpCache
+import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
+import io.ktor.client.plugins.logging.LogLevel
+import io.ktor.client.plugins.logging.Logging
 import io.ktor.client.request.get
 import io.ktor.client.statement.bodyAsText
 import src.core.datastructure.lruCacheOf
 
 class HttpFetching {
-    private val client by lazy { HttpClient { install(HttpCache) } }
+    private val client by lazy {
+        HttpClient {
+            install(HttpCache)
+            install(Logging) {
+                level = LogLevel.ALL
+            }
+        }
+    }
 
     private val responseLruCache = lruCacheOf<String, String>(10)
 

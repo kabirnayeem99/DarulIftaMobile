@@ -19,8 +19,6 @@ fun initKoin(appDeclaration: KoinAppDeclaration = {}) = startKoin {
     modules(commonModule())
 }
 
-fun initKoin() = initKoin {}
-
 fun commonModule() =
     getUseCaseModule() + getServiceModule() + getDataSourceModule() + getRepositoryModule() + getHelperModule()
 

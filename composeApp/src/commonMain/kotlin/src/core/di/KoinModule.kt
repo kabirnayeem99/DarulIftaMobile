@@ -14,6 +14,7 @@ import src.data.datasource.DarulIftaDeobandRemoteDataSource
 import src.data.repository.CategoryRepositoryImpl
 import src.data.repository.QuestionAnswerRepositoryImpl
 import src.data.service.scraping.DarulIftaDeobandScrapingService
+import src.data.service.scraping.StaticJsonLoaderService
 import src.data.service.scraping.HttpFetching
 import src.domain.repository.CategoryRepository
 import src.domain.repository.QuestionAnswerRepository
@@ -38,6 +39,7 @@ fun getViewModelModule() = module {
 fun getServiceModule() = module {
     singleOf(::HttpFetching)
     singleOf(::DarulIftaDeobandScrapingService)
+    singleOf(::StaticJsonLoaderService)
 }
 
 fun getDataSourceModule() = module {

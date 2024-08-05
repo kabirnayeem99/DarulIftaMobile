@@ -1,6 +1,7 @@
 package src.data.repository
 
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
 import src.core.datastructure.Resource
 import src.data.datasource.CategoryLocalDataSource
 import src.domain.entity.Category
@@ -12,11 +13,9 @@ class CategoryRepositoryImpl(
 
     val categories = mutableListOf<Category>()
 
-    override fun getSubCategories(rootCategoryId: Long): Flow<Resource<List<Category>>> {
-        TODO("Not yet implemented")
-    }
+    override fun getSubCategories(rootCategoryId: Long) = flow<Resource<List<Category>>> {  }
 
     override val allCategories: Flow<Resource<List<Category>>>
-        get() = TODO("Not yet implemented")
+        get() =  flow {  }
 
 }

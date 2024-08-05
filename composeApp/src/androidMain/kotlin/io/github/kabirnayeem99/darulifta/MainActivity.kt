@@ -1,6 +1,6 @@
 package io.github.kabirnayeem99.darulifta
 
-import src.App
+import src.presentation.App
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent

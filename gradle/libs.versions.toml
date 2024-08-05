@@ -66,6 +66,7 @@ koin-test-junit4 = { module = "io.insert-koin:koin-test-junit4", version.ref = "
 koin-compose-multiplatform = { module = "io.insert-koin:koin-compose", version.ref = "koinComposeMultiplatform" }
 voyager-navigator = { module = "cafe.adriel.voyager:voyager-navigator", version.ref = "voyager" }
 voyager-screenModel = { module = "cafe.adriel.voyager:voyager-screenmodel", version.ref = "voyager" }
+voyager-koin = { module = "cafe.adriel.voyager:voyager-koin", version.ref = "voyager" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

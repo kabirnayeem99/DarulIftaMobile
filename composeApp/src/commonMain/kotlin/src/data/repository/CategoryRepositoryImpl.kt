@@ -16,7 +16,7 @@ class CategoryRepositoryImpl(
         TODO("Not yet implemented")
     }
 
-    override fun getRootCategories(): Flow<Resource<List<Category>>> {
-        TODO("Not yet implemented")
-    }
+    override val allCategories: Flow<Resource<List<Category>>>
+        get() = TODO("Not yet implemented")
+
 }

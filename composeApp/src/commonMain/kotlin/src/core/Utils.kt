@@ -9,6 +9,16 @@ fun <T> safeCall(block: () -> T): T? {
     }
 }
 
+suspend fun <T> safeCallAsync(block: suspend () -> T): T? {
+    return try {
+        block()
+    } catch (e: Exception) {
+        e.printStackTrace()
+        null
+    }
+}
+
+
 fun String.properCase(): String {
     return split(" ").joinToString(" ") { w ->
         w.replaceFirstChar { ch ->

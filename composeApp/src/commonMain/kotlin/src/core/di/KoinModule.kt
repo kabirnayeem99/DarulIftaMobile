@@ -1,7 +1,12 @@
 package src.core.di
 
+import org.koin.core.KoinApplication
 import org.koin.core.context.startKoin
+import src.presentation.home.HomeViewModel
+import org.koin.core.module.dsl.factoryOf
+import org.koin.core.module.dsl.singleOf
 import org.koin.dsl.KoinAppDeclaration
+import org.koin.dsl.bind
 import org.koin.dsl.module
 import src.data.datasource.CategoryLocalDataSource
 import src.data.datasource.DarulIftaDeobandLocalDataSource
@@ -14,34 +19,36 @@ import src.domain.repository.CategoryRepository
 import src.domain.repository.QuestionAnswerRepository
 
 
-fun initKoin(appDeclaration: KoinAppDeclaration = {}) = startKoin {
-    appDeclaration()
-    modules(commonModule())
+fun initKoin(appDeclaration: KoinAppDeclaration = {}) {
+    startKoin {
+        appDeclaration()
+        modules(commonModule())
+    }
 }
 
 fun commonModule() =
-    getUseCaseModule() + getServiceModule() + getDataSourceModule() + getRepositoryModule() + getHelperModule()
+    getUseCaseModule() + getServiceModule() + getDataSourceModule() + getRepositoryModule() + getViewModelModule()
 
 
-fun getHelperModule() = module {
-
-
+fun getViewModelModule() = module {
+    factoryOf(::HomeViewModel)
 }
 
+
 fun getServiceModule() = module {
-    single { HttpFetching() }
-    single { DarulIftaDeobandScrapingService() }
+    singleOf(::HttpFetching)
+    singleOf(::DarulIftaDeobandScrapingService)
 }
 
 fun getDataSourceModule() = module {
-    factory { CategoryLocalDataSource(get()) }
-    factory { DarulIftaDeobandLocalDataSource() }
-    factory { DarulIftaDeobandRemoteDataSource(get(), get()) }
+    factoryOf(::CategoryLocalDataSource)
+    factoryOf(::DarulIftaDeobandLocalDataSource)
+    factoryOf(::DarulIftaDeobandRemoteDataSource)
 }
 
 fun getRepositoryModule() = module {
-    single<CategoryRepository> { CategoryRepositoryImpl(get()) }
-    single<QuestionAnswerRepository> { QuestionAnswerRepositoryImpl(get(), get()) }
+    singleOf(::CategoryRepositoryImpl).bind<CategoryRepository>()
+    singleOf(::QuestionAnswerRepositoryImpl).bind<QuestionAnswerRepository>()
 }
 
 fun getUseCaseModule() = module {}

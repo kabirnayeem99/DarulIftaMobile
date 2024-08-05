@@ -6,5 +6,5 @@ import src.domain.entity.Category
 
 interface CategoryRepository {
     fun getSubCategories(rootCategoryId: Long): Flow<Resource<List<Category>>>
-    fun getRootCategories(): Flow<Resource<List<Category>>>
+    val allCategories: Flow<Resource<List<Category>>>
 }

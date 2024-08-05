@@ -11,4 +11,8 @@ interface QuestionAnswerRepository {
     fun getQuestionList(page: Int = 1): Flow<Resource<List<QuestionAnswer>>>
 
     fun getQuestionListByCategory(categoryId: Long): Flow<Resource<List<QuestionAnswer>>>
+
+    val recentQuestionList: Flow<Resource<List<QuestionAnswer>>>
+    val specialQuestionList: Flow<Resource<List<QuestionAnswer>>>
+    val modernQuestionList: Flow<Resource<List<QuestionAnswer>>>
 }

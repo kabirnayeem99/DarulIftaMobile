@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="recent_fatwa_label">جدید مسائل</string>
+    <string name="special_fatwa_label">خصوصی فتاوی</string>
+    <string name="modern_fatwa_label">تازه ترین فتاوی</string>
+</resources>

@@ -1,4 +1,4 @@
-package src.presentation.home
+package src.presentation.home.ui
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -15,6 +15,7 @@ import daruliftamobile.composeapp.generated.resources.recent_fatwa_label
 import daruliftamobile.composeapp.generated.resources.special_fatwa_label
 import org.jetbrains.compose.resources.stringResource
 import src.presentation.base.BaseComposeScreen
+import src.presentation.home.HomeUiState
 
 @Composable
 fun HomeView(

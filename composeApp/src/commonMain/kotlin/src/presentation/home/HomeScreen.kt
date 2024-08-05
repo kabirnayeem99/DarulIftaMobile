@@ -13,6 +13,7 @@ import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
 import core.UiEvent
 import kotlinx.coroutines.flow.SharedFlow
+import src.presentation.home.ui.HomeView
 
 class HomeScreen : Screen {
     @Composable

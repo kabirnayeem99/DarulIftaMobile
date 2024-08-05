@@ -7,6 +7,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.IO
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.channels.BufferOverflow
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.FlowCollector
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asSharedFlow
@@ -43,16 +45,12 @@ class HomeViewModel(
                     HomeUiState.Tab.Recent -> questionAnswerRepository.recentQuestionList
                     HomeUiState.Tab.Special -> questionAnswerRepository.specialQuestionList
                     HomeUiState.Tab.Modern -> questionAnswerRepository.modernQuestionList
-                }.also { flow ->
-                    flow.collect { resource ->
-                        handleResource(resource) { questions ->
-                            _uiState.update { us ->
-                                when (tab) {
-                                    HomeUiState.Tab.Recent -> us.copy(recentQuestions = questions)
-                                    HomeUiState.Tab.Special -> us.copy(specialQuestions = questions)
-                                    HomeUiState.Tab.Modern -> us.copy(modernQuestions = questions)
-                                }
-                            }
+                }.collectResource { questions ->
+                    _uiState.update { us ->
+                        when (tab) {
+                            HomeUiState.Tab.Recent -> us.copy(recentQuestions = questions)
+                            HomeUiState.Tab.Special -> us.copy(specialQuestions = questions)
+                            HomeUiState.Tab.Modern -> us.copy(modernQuestions = questions)
                         }
                     }
                 }
@@ -66,10 +64,8 @@ class HomeViewModel(
         fetchCategoriesJob?.cancel()
         fetchCategoriesJob = screenModelScope.launch(Dispatchers.IO) {
             safeCallAsync {
-                categoryRepository.allCategories.collect { resource ->
-                    handleResource(resource) { categories ->
-                        _uiState.update { us -> us.copy(categories = categories) }
-                    }
+                categoryRepository.allCategories.collectResource { categories ->
+                    _uiState.update { us -> us.copy(categories = categories) }
                 }
             }
         }
@@ -84,12 +80,14 @@ class HomeViewModel(
             is Resource.Loading -> toggleLoading(true)
             is Resource.Success -> {
                 toggleLoading(false)
-                val data = resource.data
-                if (data != null) onDataFound(data)
+                resource.data?.let { data -> onDataFound(data) }
             }
         }
     }
 
+    private suspend fun <T> Flow<Resource<T>>.collectResource(collector: FlowCollector<T>) {
+        collect { resource -> handleResource(resource) { d -> collector.emit(d) } }
+    }
 
     private fun toggleLoading(loading: Boolean) {
         _uiState.update { us -> us.copy(isLoading = loading) }

@@ -6,7 +6,6 @@ import core.UiEvent
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.IO
 import kotlinx.coroutines.Job
-import kotlinx.coroutines.channels.BufferOverflow
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.FlowCollector
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -27,9 +26,7 @@ class HomeViewModel(
     private val _uiState = MutableStateFlow(HomeUiState())
     val uiState = _uiState.asStateFlow()
 
-    private val _uiEvent = MutableSharedFlow<UiEvent>(
-        extraBufferCapacity = 5, onBufferOverflow = BufferOverflow.DROP_OLDEST
-    )
+    private val _uiEvent = MutableSharedFlow<UiEvent>()
     val uiEvent = _uiEvent.asSharedFlow()
 
 

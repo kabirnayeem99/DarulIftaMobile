@@ -1,8 +1,10 @@
 package src.presentation.home
 
+import androidx.compose.runtime.Stable
 import src.domain.entity.Category
 import src.domain.entity.QuestionAnswer
 
+@Stable
 data class HomeUiState(
     val selectedTab: Tab = Tab.Recent,
     val recentQuestions: List<QuestionAnswer> = emptyList(),

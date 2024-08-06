@@ -7,27 +7,34 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.graphics.Color
+import core.UiEvent
+import kotlinx.coroutines.flow.SharedFlow
 
 @Composable
 fun BaseComposeScreen(
     topBar: @Composable () -> Unit = {},
+    bottomBar: @Composable () -> Unit = {},
     showLoading: Boolean = false,
-    snackbarHostState: SnackbarHostState? = null,
+    uiEvent: SharedFlow<UiEvent>,
     floatingActionButton: @Composable () -> Unit = {},
     floatingActionButtonPosition: FabPosition = FabPosition.End,
     content: @Composable (PaddingValues) -> Unit
 ) {
+    val snackbarHostState = remember { SnackbarHostState() }
     Scaffold(
         topBar = topBar,
         snackbarHost = {
-            if (snackbarHostState != null) SnackbarHost(hostState = snackbarHostState)
+            SnackbarHost(hostState = snackbarHostState)
         },
         floatingActionButton = floatingActionButton,
         floatingActionButtonPosition = floatingActionButtonPosition,
+        bottomBar = bottomBar,
     ) { scaffoldPadding ->
         if (showLoading) ProgressDialog()
         content(scaffoldPadding)
     }
+    UserMessageHandler(uiEvent, snackbarHostState)
 }
 

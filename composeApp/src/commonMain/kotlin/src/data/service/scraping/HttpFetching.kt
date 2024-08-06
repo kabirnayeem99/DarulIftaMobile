@@ -12,6 +12,7 @@ import src.core.datastructure.lruCacheOf
 class HttpFetching {
     private val client by lazy {
         HttpClient {
+            expectSuccess = true
             install(HttpCache)
             install(Logging) {
                 level = LogLevel.ALL

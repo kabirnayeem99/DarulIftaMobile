@@ -3,28 +3,41 @@ package src.presentation.home.ui
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.SnackbarHostState
+import androidx.compose.material.BottomNavigation
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Tab
 import androidx.compose.material3.TabRow
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import core.UiEvent
 import daruliftamobile.composeapp.generated.resources.Res
+import daruliftamobile.composeapp.generated.resources.app_name
 import daruliftamobile.composeapp.generated.resources.modern_fatwa_label
 import daruliftamobile.composeapp.generated.resources.recent_fatwa_label
 import daruliftamobile.composeapp.generated.resources.special_fatwa_label
+import kotlinx.coroutines.flow.SharedFlow
 import org.jetbrains.compose.resources.stringResource
 import src.presentation.base.BaseComposeScreen
 import src.presentation.home.HomeUiState
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeView(
     uiState: HomeUiState,
-    snackbarHostState: SnackbarHostState? = null,
+    uiEvent: SharedFlow<UiEvent>,
     onTabChanged: (HomeUiState.Tab) -> Unit = {},
 ) {
     BaseComposeScreen(
-        snackbarHostState = snackbarHostState,
+        uiEvent = uiEvent,
+        topBar = {
+            TopAppBar(title = { Text(text = stringResource(Res.string.app_name)) })
+        },
+        bottomBar = {
+            BottomNavigation {
+            }
+        }
     ) { scaffoldPadding ->
 
         Column(
